@@ -41,10 +41,6 @@ Route::get('/reserve/form', [HomeController::class, 'reserveForm'])->name('front
 Route::get('/trip', [HomeController::class, 'showTrip'])->name('frontend.showTrip');
 Route::get('/trip/{id}', [HomeController::class, 'bookTrip'])->name('frontend.bookTrip')->middleware('auth');
 
-//Payment
-// Route::get('user/payment/{id}',[UserPaymentController::class,'userpayment'])->name('user.payment');
-// Route::post('user/payment/post/{book_id}',[UserPaymentController::class,'postPayment'])->name('user.payment.post');
-
 // Registration & login
 Route::get('/user/registration',[LoginController::class,'registration'])->name('user.registration');
 Route::post('/user/registration/post',[LoginController::class,'registrationPost'])->name('user.registration.post');

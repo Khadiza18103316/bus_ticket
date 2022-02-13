@@ -43,18 +43,21 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th class="per10 text-center">Bus Name</th>
-                                                <th class="per10 text-center">Seat Name</th>
-                                                <th class="per10 text-center">Date</th>
-                                                <th class="per10 text-center">Time</th>
-                                                <th class="per10 text-center">Total</th>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Seat Name</th>
+                                                <th scope="col">Bus Name</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                                <th scope="col">Amount</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>1024MB Cloud 2.0 Server - elisium.dynamic.com (12/04/2014 - 01/03/2015)</td>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center">$25.00 USD</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                             </tr>
                                         </tbody>
                                     </table>
