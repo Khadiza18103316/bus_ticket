@@ -72,6 +72,15 @@
             <span>Available Trip</span></a>
     </li>
 
+     <!-- Divider -->
+     <hr class="sidebar-divider">
+     <li class="nav-item active">
+         <a class="nav-link" href="{{route('admin.payment')}}">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Payment</span></a>
+     </li>
+ 
+
     <hr class="sidebar-divider">
     <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#settingColl" aria-expanded="true"

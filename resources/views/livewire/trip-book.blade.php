@@ -68,6 +68,7 @@
 
 @if(!empty(auth()->user()))
 <button wire:click="book"  type="submit" class="btn btn-primary btn-sm">Book Now</button>
+<a href="{{route('booking.details')}}" class="btn btn-primary btn-sm">View Booking Details</a>
 @else
 <a href="{{route('user.login')}}" class="btn btn-primary btn-sm">Book Now</a>
 @endif

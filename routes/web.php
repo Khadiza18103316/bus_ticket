@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 // Frontend
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\LoginController;
+use App\Http\Controllers\Frontend\BookingDetailsController;
+use App\Http\Controllers\Frontend\UserPaymentController;
+
 
 // Backend
 use App\Http\Controllers\Backend\CounterController;
@@ -18,6 +21,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\DriverController;
 use App\Http\Controllers\Backend\BusRouteController;
 use App\Http\Controllers\Backend\LocationController;
+use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\AdminLoginController  as AdminUserController;
 
 
@@ -40,6 +44,13 @@ Route::get('/',[HomeController::class,'home'])->name('frontend.home');
 Route::get('/reserve/form', [HomeController::class, 'reserveForm'])->name('frontend.reserve');
 Route::get('/trip', [HomeController::class, 'showTrip'])->name('frontend.showTrip');
 Route::get('/trip/{id}', [HomeController::class, 'bookTrip'])->name('frontend.bookTrip')->middleware('auth');
+Route::get('/booking/details',[BookingDetailsController::class,'bookingdetails'])->name('booking.details');
+//Print
+Route::get('/print/view{id}',[BookingDetailsController::class,'viewinfo'])->name('view.info');
+
+//UserPayment
+Route::get('user/payment/{id}',[UserPaymentController::class,'userpayment'])->name('user.payment');
+Route::post('user/payment/store/{id}',[UserPaymentController::class,'store'])->name('user.payment.store');
 
 // Registration & login
 Route::get('/user/registration',[LoginController::class,'registration'])->name('user.registration');
@@ -68,7 +79,6 @@ Route::get ('/dashboard',[AdminController::class,'dashboard'])->name('admin.dash
 
 // Booking List
 Route::get('/booking/list', [BookingController::class, 'list'])->name('admin.booking.list');
-Route::get('/booking/details/{id}', [BookingController::class, 'details'])->name('admin.booking.details');
 Route::delete('/booking/delete/{id}', [BookingController::class, 'delete'])->name('admin.booking.delete');
 
     
@@ -140,6 +150,9 @@ Route::post('/trip/store',[TripController::class, 'store'])->name('admin.trip.st
 Route::get('/trip/edit/{id}', [TripController::class, 'edit'])->name('admin.trip.edit');
 Route::put('/trip/update/{id}', [TripController::class, 'update'])->name('admin.trip.update');
 Route::delete('/trip/delete/{id}', [TripController::class, 'delete'])->name('admin.trip.delete');
+
+// Payment
+Route::get('/payment', [PaymentController::class,'payment'])->name('admin.payment');
 
 });
 });

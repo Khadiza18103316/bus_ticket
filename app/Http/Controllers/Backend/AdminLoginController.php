@@ -19,7 +19,7 @@ class AdminLoginController extends Controller
         $userInfo=$request->except('_token');
 
         if(Auth::attempt($userInfo)){
-            return redirect()->route('admin.dashboard')->with('message','Login successful.');
+            return redirect()->route('admin.dashboard')->with('message','Login Successfully..');
         }
         return redirect()->back()->withErrors('Invalid user credentials');
 
