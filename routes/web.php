@@ -8,7 +8,6 @@ use App\Http\Controllers\Frontend\LoginController;
 use App\Http\Controllers\Frontend\BookingDetailsController;
 use App\Http\Controllers\Frontend\UserPaymentController;
 
-
 // Backend
 use App\Http\Controllers\Backend\CounterController;
 use App\Http\Controllers\Backend\BusController;
@@ -45,8 +44,10 @@ Route::get('/reserve/form', [HomeController::class, 'reserveForm'])->name('front
 Route::get('/trip', [HomeController::class, 'showTrip'])->name('frontend.showTrip');
 Route::get('/trip/{id}', [HomeController::class, 'bookTrip'])->name('frontend.bookTrip')->middleware('auth');
 Route::get('/booking/details',[BookingDetailsController::class,'bookingdetails'])->name('booking.details');
+
 //Print
 Route::get('/print/view{id}',[BookingDetailsController::class,'viewinfo'])->name('view.info');
+// Route::get('/booking/view/{id}', [BookingDetailsController::class,'viewinfo'])->name('view.info');
 
 //UserPayment
 Route::get('user/payment/{id}',[UserPaymentController::class,'userpayment'])->name('user.payment');
@@ -79,7 +80,9 @@ Route::get ('/dashboard',[AdminController::class,'dashboard'])->name('admin.dash
 
 // Booking List
 Route::get('/booking/list', [BookingController::class, 'list'])->name('admin.booking.list');
-Route::delete('/booking/delete/{id}', [BookingController::class, 'delete'])->name('admin.booking.delete');
+Route::get('/booking/status/{id}', [BookingController::class,'bookingStatus'])->name('admin.booking.status');
+// Route::delete('/booking/delete/{id}', [BookingController::class, 'delete'])->name('admin.booking.delete');
+
 
     
 // Passenger List

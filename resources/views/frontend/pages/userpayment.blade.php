@@ -184,10 +184,7 @@
 
     <div class="container">
         <div class="row-fluid">
-               @if(session()->has('message'))
-   <p class="alert alert-success">{{session()->get('message')}}</p>
-@endif
-
+               
 @if($errors->any())
    @foreach($errors->all() as $er)
        <p class="alert alert-danger">{{$er}}</p>
@@ -245,11 +242,10 @@
                     <div class="control-group">
                         <div class="controls">
                             @if($view == true)
-                              <a class="btn btn-success" href="{{route('view.info',$booking->id)}}">View</a>
-                              @else
-                            <button type="submit" class="btn btn-primary" >Pay Now</button>
-
-                              @endif
+                            <a class="btn btn-success" href="{{route('view.info',$booking->id)}}">View</a>
+                            @else
+                          <button type="submit" class="btn btn-danger" >Pay Now</button>
+                            @endif
                         </div>
                     </div>
                 </fieldset>

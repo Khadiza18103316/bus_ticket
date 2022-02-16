@@ -7,7 +7,7 @@
             {{session()->get('message')}}
         </p>
     @endif
-    <h4 style="color:blueviolet" front size="24px">
+    <h4 style="color:rgb(43, 46, 226)" front size="24px">
         Dashboard
     </h4>
 @endsection

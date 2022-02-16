@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use App\Models\User;
 use App\Models\Booking;
 use App\Models\Payment;
 use Illuminate\Http\Request;
@@ -18,11 +18,11 @@ class UserPaymentController extends Controller
         if ($payment->isEmpty() ) {
             $view = false;
             return view('frontend.pages.userpayment',compact('id','booking','view'));
-        }else {
-            return view('frontend.pages.userpayment',compact('id','booking','view'));
+            
         }
-        
-        
+        else {
+            return view('frontend.pages.userpayment',compact('id','booking','view'));
+        }    
     }
 
     public function store(Request $request,$id){
@@ -34,6 +34,6 @@ class UserPaymentController extends Controller
             'transaction_id'=>$request->transaction_id,
             'amount'=>$request->amount,
         ]);
-        return redirect()->back()->with('message','Payment Successful!');
+        return redirect()->route('view.info', ['id' => $id])->with('message', 'Payment Succefully!');
     }
 }

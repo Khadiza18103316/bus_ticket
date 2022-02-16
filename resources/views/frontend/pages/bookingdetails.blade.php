@@ -172,10 +172,10 @@
         <div class="header-right">
             <a class="" href="{{url('/')}}" style="margin-right: 15px;
     text-decoration: none">Home</a>
-
         </div>
     </div>
 </body>
+       
 <br>
 <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -209,7 +209,7 @@
     </tr>
     @endforeach
     @else
-    <tr>no ticket</tr>
+    <tr>No ticket</tr>
     @endif
   </tbody>
   

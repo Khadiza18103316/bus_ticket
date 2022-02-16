@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>userbookinfo</title>
+    <title>document</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js">
@@ -12,6 +12,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+
+    <div class="header">
+            <div class="header-right">
+                <a class="" href="{{url('/')}}" style="margin-right: 15px;
+        text-decoration: none">Home</a>
+            </div>
+        </div>
+
 <style>
     * {
         box-sizing: border-box;
@@ -177,15 +185,19 @@
 </style>
 
 <div style="margin-top:57px; margin-left: 61px;">
+    
+    @if(session()->has('message'))
+   <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 
      <form class="print_order">
-        <input class="btn btn-primary"  type="button" onClick="PrintDiv();" value="Print">
+        <input class="btn btn-danger"  type="button" onClick="PrintDiv();" value="Print">
      </form>
 
  <div id="divToPrint">
     <h1>Booking Details </h1>
    <div style="display:flex; align-items:center;">
-       <h4 style="font-weight: bold; padding-right: 15px;">Passenger's Name:</h4>
+       <h4 style="font-weight: bold; padding-right: 15px;">Name:</h4>
        <dd class="col-sm-9" style="font-size: 22px;">{{($detail->user->name)}}</dd>
    </div>
 
@@ -219,7 +231,7 @@
 
     <div style="display:flex; align-items:center;">
           <h4 style="font-weight: bold; padding-right: 15px;">Total Price: </h4>
-          <dd class="col-sm-9"  style="font-size: 22px;">{{$detail->detail->amount}}</dd>
+          <dd class="col-sm-9"  style="font-size: 22px;">{{$detail->amount}}</dd>
     </div>
 
  </div>

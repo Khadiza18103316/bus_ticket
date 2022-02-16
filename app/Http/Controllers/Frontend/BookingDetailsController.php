@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use App\Models\User;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,9 +14,9 @@ class BookingDetailsController extends Controller
         // dd(auth()->user());
         return view('frontend.pages.bookingdetails',compact('details'));
     }
-     public function viewinfo($id){
-         $detail = Booking::find($id);
-       
-         return view('users.pages.viewinfo',compact('detail'));
-     }
-}
+
+    public function viewinfo($id){
+        $detail = Booking::find($id);
+        return view('frontend.pages.viewinfo',compact('detail'));
+    }
+    }

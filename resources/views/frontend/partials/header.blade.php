@@ -17,7 +17,7 @@
                     <li><a href="#contact">Contact</a></li>
 
                     @if(auth()->user())
-                    <li><a href="{{route('user.logout')}}">{{auth()->user()->name}} ({{auth()->user()->role}})| Logout</a></li> 
+                    <li><a href="{{route('user.logout')}}">{{auth()->user()->name}} Logout</a></li> 
                     @else           
                     <li><a href="{{route('user.login')}}">Login</a></li>  
                     <li><a href="{{route('user.registration')}}">Registration</a></li>  

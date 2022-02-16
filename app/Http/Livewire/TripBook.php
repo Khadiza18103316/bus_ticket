@@ -62,7 +62,7 @@ class TripBook extends Component
                 Booking::Create($data);
             }
         }
-
-        Session::flash('message', 'Congratulation! Your Ticket Booked Successfully');
+        Session::flash('message', 'Your Ticket Booked. Please complete the transaction,
+        otherwise, your booking may be pending');
     }
 }

@@ -34,7 +34,7 @@
                 <tr>
                     <th>{{ $key + 1 }}</th>
                     <td>{{ $bus->bus_name }}</td>
-                    <td><img src="{{ url('/uploads/' . $bus->image) }}" width="80"></td>
+                    <td><img src="{{ url('/uploads/' . $bus->image) }}" height="120"></td>
                     <td>{{ $bus->bus_no }}</td>
                     <td>{{ $bus->bus_type }}</td>
 

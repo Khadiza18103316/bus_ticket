@@ -14,9 +14,11 @@
                 <th scope="col">Seat Name</th>
                 <th scope="col">User/Passenger</th>
                 <th scope="col">Bus Name</th>
+                <th scope="col">Seat Name</th>
                 <th scope="col">Date</th>
                 <th scope="col">Time</th>
                 <th scope="col">Amount</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -27,12 +29,18 @@
                     <td>{{ $booking->seat->name}}</td>
                     <td>{{ $booking->user->name}}</td>
                     <td>{{ $booking->seat->bus->bus_name}}</td>
+                    <td>{{ $booking->seat->name}}</td>
                     <td>{{ $booking->date}}</td>
                     <td>{{ $booking->time}}</td>
                     <td>{{ $booking->amount}}</td>
+                    <td>{{ $booking->status}}</td>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.booking.details',$booking->id)}}">
-                         Details</a>
+                        @if($booking->status!='complete')
+                        <a href="{{route('admin.booking.status',$booking->id)}}" class="btn btn-danger">Complete</a>
+                        @endif
+                    </td>
+
+                    {{-- <td>
                         <button class="btn btn-danger btn-sm" data-toggle="modal"
                         data-target="#exampleModal{{$booking->id}}">Delete</button>
                     </td>
@@ -66,7 +74,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> --}}
                 </tr>
             @endforeach
         </tbody>
