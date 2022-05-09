@@ -2,7 +2,7 @@
 @section('content')
 
     <h3>Passenger list</h3>
-    
+
     @if(session()->has('msg'))
     <p class="alert alert-danger">{{session()->get('msg')}}</p>
 @endif
@@ -15,7 +15,7 @@
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
                 <th scope="col">Password</th>
-                <th scope="col">Action</th>
+                <th scope="col">Member since</th>
 
             </tr>
         </thead>
@@ -27,41 +27,8 @@
                     <td>{{ $user->phone}}</td>
                     <td>{{ $user->email}}</td>
                     <td>{{ $user->password }}</td>
-                    <td><button class="btn btn-danger btn-sm" data-toggle="modal"
-                        data-target="#exampleModal{{$user->id}}">Delete</button>
-                </td>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{$user->id}}" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <form action="{{route('passenger.delete',$user->id)}}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title"
-                                        id="exampleModalLabel{{$user->id}}}}">Delete
-                                        confiramation
-                                    </h5>
-                                    <button type="button" class="close"
-                                        data-dismiss="modal" aria-label="Close">
-                                        <span aria-fidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Are you sure?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-danger">Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                </tr>
+                    <td>{{ \Carbon\Carbon::parse($user->created_at)->format('M d Y') }}</td>
+              </tr>
             @endforeach
         </tbody>
     </table>

@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 class LocationController extends Controller
 {
     public function list(){
-      $locations=Location::paginate(5);
+      $locations=Location::latest()->paginate(5);
       //   dd($locations);
         return view('admin.pages.Location.location-list',compact('locations'));
      }
-     
+
      public function create(){
- 
+
         return view('admin.pages.Location.location-create');
      }
      public function store(Request $request){
@@ -23,7 +23,7 @@ class LocationController extends Controller
          'location_from'=>'required',
          'location_to'=>'required',
       ]);
-   
+
    Location::create ([
                // field name for DB || field name for form
                'location_from'=>$request->location_from,
@@ -34,7 +34,7 @@ class LocationController extends Controller
 public function locationEdit($id){
    // dd($id);
    $location = Location::find($id);
-   // dd($location);          
+   // dd($location);
    $locations = Location::all();
    if ($location) {
        return view('admin.pages.Location.location-edit',compact('location'));

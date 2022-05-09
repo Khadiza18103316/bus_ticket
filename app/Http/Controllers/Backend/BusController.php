@@ -11,10 +11,10 @@ class BusController extends Controller
 {
   public function list()
   {
-    $buses=Bus::paginate(5);
+    $buses=Bus::latest()->paginate(5);
     return view('admin.pages.Bus.bus-list',compact('buses'));
   }
-    
+
   public function create()
   {
       return view('admin.pages.Bus.bus-create');
@@ -34,7 +34,7 @@ class BusController extends Controller
         'bus_no'=>'required|numeric',
         'bus_type'=>'required',
       ]);
-      
+
       // dd('ok');
       // dd($request->all());
 
@@ -56,7 +56,7 @@ class BusController extends Controller
     }
 
     public function busUpdate(Request $request,$id){
-        $bus = Bus::find($id);  
+        $bus = Bus::find($id);
         $filename = '';
       if($request->hasFile('bus_image')){
         $file = $request->file('bus_image');

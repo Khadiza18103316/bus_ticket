@@ -24,20 +24,6 @@ use App\Http\Controllers\Backend\PaymentController;
 use App\Http\Controllers\Backend\AdminLoginController  as AdminUserController;
 
 
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 // Frontend
 Route::get('/',[HomeController::class,'home'])->name('frontend.home');
 Route::get('/reserve/form', [HomeController::class, 'reserveForm'])->name('frontend.reserve');
@@ -59,36 +45,33 @@ Route::post('/user/registration/post',[LoginController::class,'registrationPost'
 Route::get('/user/login',[LoginController::class,'login'])->name('user.login');
 Route::post('/user/do/login',[LoginController::class,'doLogin'])->name('user.do.login');
 Route::get('/user/logout',[LoginController::class,'logout'])->name('user.logout');
-  
+
 // Admin Panel
 Route::group(['prefix'=>'admin'],function(){
 
-//Admin Login 
+//Admin Login
 Route::get('/login',[AdminUserController::class, 'login'])->name('admin.login');
 Route::post('/dologin',[AdminUserController::class, 'doLogin'])->name('admin.doLogin');
-    
+
 Route::group(['middleware'=>['auth','admin']],function (){
 Route::get('/', function () {
                 return view('admin.pages.home');
             })->name('home');
-        
+
 // Admin Logout
 Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
-    
+
 //Dashboard
 Route::get ('/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
 
 // Booking List
 Route::get('/booking/list', [BookingController::class, 'list'])->name('admin.booking.list');
 Route::get('/booking/status/{id}', [BookingController::class,'bookingStatus'])->name('admin.booking.status');
-// Route::delete('/booking/delete/{id}', [BookingController::class, 'delete'])->name('admin.booking.delete');
 
 
-    
 // Passenger List
-Route::get('/passenger/list', [UserController::class, 'list'])->name('passenger');
-Route::delete('/passenger/delete/{id}', [UserController::class, 'delete'])->name('passenger.delete');
-  
+Route::get('/user/list', [UserController::class, 'list'])->name('passenger');
+
 // Location
 Route::get('/location/list', [LocationController::class, 'list'])->name('admin.location');
 Route::get('/location/delete/{id}',[LocationController::class, 'locationDelete'])->name('admin.location.delete');
@@ -105,21 +88,21 @@ Route::get('/city/edit/{id}',[CityController::class,'cityEdit'])->name('admin.ci
 Route::put('/city/update/{id}',[CityController::class,'cityUpdate'])->name('admin.city.update');
 Route::get('/city/create', [CityController::class, 'create'])->name('admin.city.create');
 Route::post('/city/store', [CityController::class, 'store'])->name('admin.city.store');
-    
+
 // Driver
 Route::get('/driver/list', [DriverController::class, 'list'])->name('admin.driver');
 Route::get('/driver/create', [DriverController::class, 'create'])->name('admin.driver.create');
 Route::get('/driver/view/{counter_id}',[DriverController::class, 'driverDetails'])->name('admin.driver.details');
 Route::get('/driver/delete/{counter_id}',[DriverController::class, 'driverDelete'])->name('admin.driver.delete');
 Route::post('/driver/store', [DriverController::class, 'store'])->name('admin.driver.store');
-    
+
 //Counter
 Route::get('/counter/list', [CounterController::class, 'list'])->name('admin.counter');
 Route::get('/counter/view/{counter_id}',[CounterController::class, 'counterDetails'])->name('admin.counter.details');
 Route::get('/counter/delete/{counter_id}',[CounterController::class, 'counterDelete'])->name('admin.counter.delete');
 Route::get('/counter/create', [CounterController::class, 'create'])->name('admin.counter.create');
 Route::post('/counter/store', [CounterController::class, 'store'])->name('admin.counter.store');
-    
+
 // Bus
 Route::get('/bus/list', [BusController::class, 'list'])->name('admin.bus');
 Route::get('/bus/view/{bus_id}',[BusController::class, 'busDetails'])->name('admin.bus.details');
@@ -137,7 +120,7 @@ Route::get('/busroute/view/{busroute_id}',[BusRouteController::class, 'bus_route
 Route::get('/busroute/delete/{busroute_id}',[BusRouteController::class, 'bus_route_Delete'])->name('admin.bus_route.delete');
 Route::get('/busroute/create', [BusRouteController::class, 'create'])->name('admin.busroute.create');
 Route::post('/busroute/store', [BusRouteController::class, 'store'])->name('admin.busroute.store');
-    
+
 // Seat
 Route::get('/seat/list', [SeatController::class, 'list'])->name('admin.seat');
 Route::get('/seat/edit/{id}',[SeatController::class,'seatEdit'])->name('admin.seat.edit');

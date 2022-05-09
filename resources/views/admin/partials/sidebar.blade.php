@@ -23,7 +23,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('passenger') }}">
             <i class="fas fa-users"></i>
-            <span>Passengers/User</span></a>
+            <span>User</span></a>
     </li>
 
     <!-- Divider -->
@@ -33,7 +33,7 @@
             <i class="fas fa-fw fa-list"></i>
             <span>Booking List</span></a>
     </li>
-   
+
     <!-- Divider -->
     <hr class="sidebar-divider">
     <!-- Nav Item - Pages Collapse Menu -->
@@ -48,10 +48,11 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Bus Components:</h6>
                 <a class="collapse-item" href="{{ route('admin.location') }}">Location</a>
-                <a class="collapse-item" href="{{ route('admin.counter') }}">Counter</a>
-                <a class="collapse-item" href="{{ route('admin.driver') }}">Driver</a>
                 <a class="collapse-item" href="{{ route('admin.bus') }}">Bus</a>
-                <a class="collapse-item" href="{{ route('admin.busroute') }}">Bus route</a>
+
+                {{-- <a class="collapse-item" href="{{ route('admin.counter') }}">Counter</a>
+                <a class="collapse-item" href="{{ route('admin.driver') }}">Driver</a>
+                <a class="collapse-item" href="{{ route('admin.busroute') }}">Bus route</a> --}}
             </div>
         </div>
     </li>
@@ -79,7 +80,7 @@
             <i class="fas fa-fw fa-list"></i>
             <span>Payment</span></a>
      </li>
- 
+
 
     <hr class="sidebar-divider">
     <li class="nav-item active">

@@ -64,9 +64,6 @@
 
                             <button type="submit" class="btn btn-info btn-md">Login</button>
                         </div>
-                        {{-- <div id="register-link" class="text-right">
-                            <a href="#" class="text-info">Register here</a>
-                        </div> --}}
                     </form>
                 </div>
             </div>

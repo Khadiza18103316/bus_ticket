@@ -10,10 +10,10 @@ use Illuminate\Http\Request;
 class SeatController extends Controller
 {
     public function list(){
-      $seats=Seat::paginate(5);
+      $seats=Seat::latest()->paginate(5);
          return view('admin.pages.Seat.seat-list',compact('seats'));
       }
-      
+
       public function create(){
          $buses=Bus::all();
          return view('admin.pages.Seat.seat-create', compact('buses'));
@@ -28,9 +28,9 @@ class SeatController extends Controller
 
       Seat::create([
          //field name for DB || field name for form
-    
+
          'name'=>$request->name,
-         'bus_id'=>$request->bus_id, 
+         'bus_id'=>$request->bus_id,
       ]);
       return redirect()->route('admin.seat')->with('message','Seat created successfully!');
 }
@@ -54,7 +54,7 @@ public function seatUpdate(Request $request,$id){
    if ($seat) {
        $seat->update([
          'name'=>$request->name,
-         'bus_id'=>$request->bus_id, 
+         'bus_id'=>$request->bus_id,
        ]);
 
        return redirect()->route('admin.seat')->with('success','Seat Updated!');

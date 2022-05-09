@@ -20,7 +20,7 @@ class AdminLoginController extends Controller
 
         if(Auth::attempt($userInfo)){
             return redirect()->route('admin.dashboard')->with('message','Login Successfully..');
-        }
+        } 
         return redirect()->back()->withErrors('Invalid user credentials');
 
     }

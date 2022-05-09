@@ -3,8 +3,8 @@
 <br>
 <br>
 <div id="gallery">
-    
-                    <div class="card-header">Buses for Passengers({{count($buses)}} bus)</div>
+
+                    <div class="card-header">All Bus({{count($buses)}} Bus)</div>
 
                     <div class="card-body">
 
@@ -29,14 +29,14 @@
             background-color: rgb(0, 195, 255);
             color: #fff;
             font-size: 24px;
-            text-align: center;  
+            text-align: center;
         }
     </style>
     </div>
 
 @endsection
 
-            	
-            
-            
-    
+
+
+
+

@@ -24,7 +24,7 @@ class BusSeeder extends Seeder
         Bus::create(
             [
                 'bus_name'=>'Google Delux',
-                'bus_no' => '13456',
+                'bus_no' => '134565',
                 'bus_type' => 'ac',
             ]
         );

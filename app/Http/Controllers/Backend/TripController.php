@@ -12,7 +12,7 @@ class TripController extends Controller
 {
     public function list()
     {
-        $trips = Trip::with('bus')->paginate(5);
+        $trips = Trip::with('bus')->latest()->paginate(5);
         return view('admin.pages.Trip.trip-list', compact('trips'));
     }
 
